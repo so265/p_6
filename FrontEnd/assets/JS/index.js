@@ -112,7 +112,7 @@ function displayWork(e, id) {
 /******Cacher des filtres lors de la connexion*****/
 function hideFilters() {
   if (localStorage.getItem("token")) {  /*Le token me permet de voir si l'utilisateur est connecté*/ 
-    const filtresCaches = (filtres.style.display = "none");
+    const filtresCaches = filtres.style.display = "none";
 
     filtresCaches.addEventListener("click", function (e) {
       e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je vneutralise l'action par défaut de l’envoi du formulaire)
