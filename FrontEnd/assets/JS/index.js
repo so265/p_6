@@ -130,7 +130,8 @@ hideFilters();
 
 function displayEdit() {
   if (localStorage.getItem("token")) { /*Le token me permet de voir si l'utilisateur est connecté*/ 
-    const edit = document.querySelector("#buttonModifier").style.visibility = "visible";
+    const edit = document.querySelector("#buttonModifier")
+    edit.style.visibility = "visible";
      
     edit.addEventListener("click", function(e){
           e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je vneutralise l'action par défaut de l’envoi du formulaire)
