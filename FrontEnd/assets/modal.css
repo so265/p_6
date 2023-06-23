@@ -1,85 +1,243 @@
 /*modal.css*/
 #modal-container {
-    display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 1140px;
-	margin: auto;
-	position: fixed;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background:rgba(0, 0, 0, 0.5);
-	z-index: 10;
-    display: none;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1140px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+}
 
-  .modal {
-    position: fixed;
-	border-radius: 15px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 630px;
-	height: 630px;
-	max-width: 500px;
-	padding: 45px;
-	background-color: #fff;
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-  }
+.modal {
+  position: fixed;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 751px;
+  height: 741px;
+  max-width: 800px;
+  padding: 45px;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /*display: none;*/
+}
 
-.close-modal{
-	font-weight: 600;
-	font-size: 25px;
-	position: absolute;
-	top: 30px;
-	right: 40px;
-	cursor: pointer;
-  }
+.close-modal {
+  /*croix pour fermer la modale*/
+  font-weight: 600;
+  font-size: 25px;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  cursor: pointer;
+}
 
-  .title-modal {
-    text-align: center;
-	font-weight: 400;
-	font-size: 28px;
-  }
+.title-modal {
+  text-align: center;
+  font-weight: 400;
+  font-size: 28px;
+  margin-bottom: 20px; /*Pour faire un espace entre le titre "galerie photos" et les images de la modale*/
+}
 
-  .bottom-line {
-    height:1px;
-	background-color:#B3B3B3;
-	width: 420px;
-	margin: auto;
-	left: 50%;
-	transform: translateX(-50%);
-	position: absolute;
-	bottom: 175px;
-  }
+.bottom-line {
+  /*ligne du bas*/
+  height: 1px;
+  background-color: #b3b3b3;
+  width: 600px;
+  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  bottom: 175px;
+}
 
-  
+.modal .delete-gallery {
+  color: red;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
 
-  .modal .delete-gallery {
-    color: red;
-	position: absolute;
-	left: 50%;
-	bottom: 50px;
-	transform: translateX(-50%);
-	cursor: pointer;
-  }
+.addPicturesModal {
+  /*"buton" ajouter photos*/
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  background-color: #1d6154;
+  width: 237px;
+  height: 36px;
+  text-align: center;
+  border-radius: 60px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px;
+  border: none;
+}
 
-  .addPicturesModal{  /*"buton" ajouter photos*/
-    font-family: 'Syne';
-	font-weight: 700;
-	font-size: 14px;
-	color: white;
-	background-color: #1D6154;
-	width: 237px;
-	height: 36px;
-	text-align: center;
-	border-radius: 60px ;
-	cursor: pointer;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: 100px;
-  }
+/***********/
 
+#gallery-pictures-modal {
+  /*C'est la galerie dans laquelle se trouve les images*/
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.modal-image-container {  /*J'ajoute a l'interieur de ce container l'icone poubelle en Js*/
+  display: inline-block;
+  margin: 10px;
+  position: relative;/*Me permet de positionner la poubelle en hau a droite*/
+}
+
+.delete-icon { /*Icone poubelle pour supprimer les projets, se trouve en haut à droite de chaque image, icone ajoutée en JS*/
+  position: absolute; /*Me permet de positionner la poubelle en hau a droite*/
+  top: 15px;
+  right: 15px;
+  background-color: black;
+}
+
+.modal-image-container:last-child img {
+  margin-right: auto;
+}
+
+.modal-image {
+  display: inline-block; /*Me permet de mettre les images les unes à coté des autres*/
+  width: 105px;
+  height: 130px;
+  object-fit: cover; /*Ainsi les images ne sont pas déformées*/
+  margin: 10px;
+}
+
+.editer {
+  display: block;
+  margin-left: 12px;
+}
+
+/************************Second-modal*********************/
+.second-modal {
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 751px;
+  height: 741px;
+  max-width: 800px;
+  padding: 45px;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  /*z-index: 1;*/
+  position: fixed;
+  display: block;
+  /*display: none;*/
+}
+
+.fas.fa-arrow-left {
+  font-size: 27px; /*J'utilise font-size car les icones sont considérées comme du texte*/
+  position: absolute;
+  top: 25px;
+  left: 10px;
+}
+
+.add-photo {
+  text-align: center;
+  height: 200px;
+  width: 420px;
+  margin: auto;
+  background: #e8f1f7;
+  padding-top: 20px;
+  box-sizing: border-box;
+  margin-top: 40px;
+  position: relative;
+}
+
+.fa.fa-image {
+  font-size: 100px;
+  color: #b9c5cc;
+}
+
+.button-add-photo {
+  width: 173px;
+  height: 36px;
+  left: 633px;
+  top: 881px;
+  background: #cbd6dc;
+  border-radius: 2050px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#formulaire {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.label-title {
+  margin-right: 380px;
+  margin-bottom: 10px;
+}
+
+.label-category {
+  margin-right: 350px;
+  margin-bottom: 10px;
+}
+
+#title-add-photo,
+#categorie-add-photo {
+  margin-bottom: 40px;
+  width: 420px;
+  height: 51px;
+  left: 510px;
+  top: 1011px;
+  background: #ffffff;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+}
+
+.valider-photo {
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  background: #a7a7a7;
+  width: 237px;
+  height: 36px;
+  text-align: center;
+  border-radius: 60px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px;
+  border: none;
+}
+
+#title-add-photo,
+#categorie-add-photo{
+outline-style: none; /*Pour enlever les bordures au ckick sur la souris*/
+}
+
+.bottom-line-secondModal {
+  height: 1px;
+  background-color: #b3b3b3;
+  width: 420px;
+  margin: auto;
+  left: 50%; /*Permet d'aligner au milieu*/
+  transform: translateX(-50%); /*Permet d'aligner au milieu*/
+  position: absolute; /*Permetde positionner en bas*/
+  bottom: 175px;
+}
