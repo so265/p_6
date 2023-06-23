@@ -9,7 +9,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
 		rel="stylesheet">
-	<script src="https://kit.fontawesome.com/4535d15021.js" crossorigin="anonymous"></script>
+	<!--<script src="https://kit.fontawesome.com/4535d15021.js" crossorigin="anonymous"></script>-->
+	<script src="https://kit.fontawesome.com/2a6d7ea1c5.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/login.css">
@@ -30,13 +31,35 @@
 		<p class="close-modal">X</p>
 		<h3 class="title-modal">Galerie photos</h3>
 		<div id="gallery-pictures-modal"></div> <!--Ici se trouveront les images-->
-		<div class="bottom-line"></div>
-		<button class="addPicturesModal">Ajouter photos
-		</button>
+		<div class="bottom-line"></div><!--Ligne grise en bas de la modale-->
+		<button class="addPicturesModal">Ajouter photos</button>
 <p class="delete-gallery">Supprimer la galery</p>
 	</div>
 <!--Fin premiére modale-->
 
+<!--Deuxiéme modale-->
+<div class="second-modal">
+	<a href="#" id="arrow"> <i class="fas fa-arrow-left"></i></a>
+	<p class="close-modal">X</p>
+	<h3 class="title-modal">Ajout photo</h3>
+	<div class="add-photo"><!--Ici se trouvera l'image à ajouter-->
+		<div class="divIconValidate">
+			<i class="fa fa-image"></i>
+		</div>
+		<button class="button-add-photo">+ Ajouter photo</button>
+		<p class="picture-format">jpg, png : 4mo max</p>
+	</div>
+
+	<form id="formulaire"  enctype="multipart/form-data">
+		<label class="label-title" for="title">Titre</label>
+		<input type="text" name="title" id="title-add-photo">
+		<label class="label-category" for="category">Catégorie</label>
+		<input type="text" name="categorie" id="categorie-add-photo">
+		</form>
+		<div class="bottom-line-secondModal"></div><!--Ligne grise en bas de la modale-->
+		<button class="valider-photo">valider</button>
+</div>
+<!--Fin deuxiéme modale-->
 
 </aside>
 
@@ -72,11 +95,11 @@
 			<div id="edit-project"> <!--Ajout du button modifier qui apparit lors de la connexion-->
 				<h2>Mes Projets</h2>
 				
-				<a id="buttonModifier"><i class="fa-regular fa-pen-to-square" id="pen"></i> Modifier</a>
+				<a id="buttonModifier"><i class="fa-regular fa-pen-to-square" id="pen"></i> Modifier</a> <!--J'appuie sur ce bouton pour ouvrir la modale-->
 			</div>
 		
 			
-				<div class="filtres"><!--Les filtres sont affichés de maniére dynamique ds index.js-->
+				<div class="filtres" id="filtres-caches"><!--Les filtres sont affichés de maniére dynamique ds index.js, les filtres sont cachés lorsque je suis connectée-->
 
 			</div>
 
@@ -153,6 +176,7 @@
 	</footer>
 	<script src="/FrontEnd/assets/JS/index.js"></script>
 	<script src="/FrontEnd/assets/JS/connected.js"></script>
+	<script src="/FrontEnd/assets/JS/modal.js"></script>
 	</body>
 
 </html>
