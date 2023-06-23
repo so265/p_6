@@ -124,3 +124,63 @@ arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléc
 
 //******Supression de travaux existant au click sur la poubelle ds la 1ére modale ******//
 
+// Je récupère l'icône corbeille pour chaque image
+
+
+//const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); //déclaré en ligne 8, car est utilisé 2 fois dans ce fichier modal.js
+
+galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal" correspond à ma gallery d'image
+  if (e.target.classList.contains("delete-icon")) { //delete-icon ds modal-css, ligne 105, c'est ma corbeille//"e.target", je determine l'élément réellement cliqué, je vérifie que cet élement posséde la classe"delete-icon"
+    const imageContainer = e.target.parentElement; //Avec"parentElement", je remonte jusqu'à l'élément conteneur de l'image qui est "imageContainer" qui contient l'image + corbeille
+    const imageId = imageContainer.getAttribute("data-id"); //j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
+//Lorsque je  clique sur la corbeille j'utilise imageContainer.getAttribute("data-id") pour récupérer la valeur de l'attribut data-id, qui représente l'identifiant de l'image correspondante.
+
+    fetch(`http://localhost:5678/api/works/${imageId}`, {  // L'URL de la requête est construite en utilisant l'ID de l'image, "imageId"=variable L137, permet de spécifier quelle image doit être suprimée
+      method: "DELETE", //Je fais 1 requéte delete à l'API en utilisant 'fetch'
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`, // j'inclue le jeton d'authentification dans les en-têtes de la requête en utilisant localStorage.getItem("token").
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.ok) { //Si la réponse de la requête est response.ok, l'image est supprimée
+          
+          imageContainer.remove(); //donc je supprime l'élément "imageContainer"= image + corbeille du DOM en utilisant imageContainer.remove().
+        } else {//si la reponse n'est pas "response.ok"
+          throw new Error("Error deleting the image"); //je génére une erreur en utilisant throw new Error("Error deleting the image")
+        }
+      })
+      .catch((error) => {
+        console.error(error);//ce message s'affichera ds la console s'il y a une ereur
+      });
+  }
+});
+
+//****************Ajout photo sur la 2éme modale
+
+
+const btnAddPhoto = document.querySelector(".button-add-photo");
+const formulaireAddPhoto = document.querySelector("#formulaire");
+
+btnAddPhoto.addEventListener("click", () => {
+  const input = document.createElement("input");
+  input.type = "file";
+  input.name = "image";
+  input.accept = "image/*";
+  input.style.display = "none";
+  
+  // J'ajoute un gestionnaire d'événement pour le changement de fichier
+  input.addEventListener("change", (e) => {
+    const file = e.target.files[0]; // C'est pour récupérer le fichier sélectionné
+    if (file) {
+      // Vous pouvez traiter le fichier ici, par exemple l'envoyer vers le serveur ou afficher un aperçu de l'image
+      console.log(file);
+    }
+  });
+  ////////////*********** *
+  formulaireAddPhoto.appendChild(input);
+  
+  //Au click sur l'élément input la boîte de dialogue de sélection de fichier s'ouvre
+  input.click();
+});
+
