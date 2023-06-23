@@ -159,28 +159,5 @@ galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal
 //****************Ajout photo sur la 2éme modale
 
 
-const btnAddPhoto = document.querySelector(".button-add-photo");
-const formulaireAddPhoto = document.querySelector("#formulaire");
 
-btnAddPhoto.addEventListener("click", () => {
-  const input = document.createElement("input");
-  input.type = "file";
-  input.name = "image";
-  input.accept = "image/*";
-  input.style.display = "none";
-  
-  // J'ajoute un gestionnaire d'événement pour le changement de fichier
-  input.addEventListener("change", (e) => {
-    const file = e.target.files[0]; // C'est pour récupérer le fichier sélectionné
-    if (file) {
-      // Vous pouvez traiter le fichier ici, par exemple l'envoyer vers le serveur ou afficher un aperçu de l'image
-      console.log(file);
-    }
-  });
-  ////////////*********** *
-  formulaireAddPhoto.appendChild(input);
-  
-  //Au click sur l'élément input la boîte de dialogue de sélection de fichier s'ouvre
-  input.click();
-});
 
