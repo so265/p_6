@@ -5,6 +5,7 @@
 const modalContainer = document.getElementById("modal-container");
 const closeButton = document.querySelector(".close-modal");
 const buttonModifier = document.getElementById("buttonModifier"); // Je clique sur ce bouton modifier pour ouvrir la modale
+const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); //variable utilisé en ligne 43 et ligne 137
 
 // Function pour fermer la modale
 function closeModal() {
@@ -36,8 +37,8 @@ function displayImagesInModal() {
   fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((works) => {
-      const galleryImagesInModal = document.querySelector("#gallery-pictures-modal");
-
+    
+      //const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); declarer en ligne 8, en variable globale
       // Effacer les images précédentes dans le modal
       galleryImagesInModal.innerHTML = "";
 
@@ -51,9 +52,9 @@ function displayImagesInModal() {
         image.alt = "Image du projet";
         image.classList.add("modal-image"); //j'ajoute la class css créee ds modal.css pour styliser l'image
 
-        //Insertion de l'image poubelle pour chaque image
-        const imgSupprimerElement = document.createElement('img');//Je crée ma poubelle
-        imgSupprimerElement.src = 'assets/icons/trash-2-16.png';//Je cible ma poubelle dans mon dossier assets
+        //Insertion de l'image corbeille pour chaque image
+        const imgSupprimerElement = document.createElement('img');//Je crée ma corbeille
+        imgSupprimerElement.src = 'assets/icons/trash-2-16.png';//Je cible ma corbeille dans mon dossier assets
         imgSupprimerElement.classList.add("delete-icon"); //class crée ds modal.css ligne 104
         imageContainer.appendChild(imgSupprimerElement);
         //Fin insertion image poubelle
@@ -79,7 +80,7 @@ const firstModal = document.querySelector(".modal"); //Je récupére la 1ére mo
 const secondModal = document.querySelector(".second-modal"); //Je récupére la seconde modale
 const arrowLeft = document.getElementById("arrow");
 
-//************* */ Fonction pour ouvrir la seconde modale et fermer la première modale
+//************* * Fonction pour ouvrir la seconde modale et fermer la première modale
 function openSecondModal() {
   firstModal.style.display = "none"; // Je cache la première modale
   secondModal.style.display = "block"; // J'affiche la seconde modale
@@ -94,7 +95,7 @@ addPicturesButton.addEventListener("click", openSecondModal);
 const closeSecondModalButton = document.querySelector(
   ".second-modal .close-modal"
 );
-//const secondModal = document.querySelector(".second-modal");
+//const secondModal = document.querySelector(".second-modal"); present en ligne 8
 
 // Fonction pour fermer la seconde modale
 function closeSecondModal() {
@@ -122,7 +123,8 @@ function goBackToFirstModal() {
 
 arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléche de gauche, j'affiche à nouveau la 1ére modale.
 
-//******Supression de travaux existant au click sur la poubelle ds la 1ére modale ******//
+
+//************Supression de travaux existant au click sur la corbeille ds la 1ére modale **************//
 
 // Je récupère l'icône corbeille pour chaque image
 
@@ -155,9 +157,5 @@ galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal
       });
   }
 });
-
-//****************Ajout photo sur la 2éme modale
-
-
 
 

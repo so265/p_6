@@ -112,14 +112,14 @@ function displayWork(e, id) {
 /******Cacher des filtres lors de la connexion*****/
 function hideFilters() {
   if (localStorage.getItem("token")) {  /*Le token me permet de voir si l'utilisateur est connecté*/ 
-    const filtresCaches = filtres.style.display = "none";
+    filtres.style.display = "none";
 
-    filtresCaches.addEventListener("click", function (e) {
+   /* filtresCaches.addEventListener("click", function (e) {
       e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je vneutralise l'action par défaut de l’envoi du formulaire)
 
       localStorage.removeItem("token");
       window.location.reload();
-    });
+    });*/
   } else {
     filtres.style.display = "flex";
   }
@@ -133,12 +133,12 @@ function displayEdit() {
     const edit = document.querySelector("#buttonModifier")
     edit.style.visibility = "visible";
      
-    edit.addEventListener("click", function(e){
+    /*edit.addEventListener("click", function(e){
           e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je vneutralise l'action par défaut de l’envoi du formulaire)
          
           localStorage.removeItem("token")
           window.location.reload();
-      })
+      })*/
   }else{
   document.querySelector("#buttonModifier").style.display ="none";
   
