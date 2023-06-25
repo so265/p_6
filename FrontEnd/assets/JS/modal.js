@@ -52,6 +52,15 @@ function displayImagesInModal() {
         image.alt = "Image du projet";
         image.classList.add("modal-image"); //j'ajoute la class css créee ds modal.css pour styliser l'image
 
+        //Insertion de l'icone fléchée pour chaque image qui apparit au hover
+       const arrowsUpDownLeftRight = document.createElement("img"); 
+        arrowsUpDownLeftRight.src = `assets/icons/arrow-multi.png`;
+        arrowsUpDownLeftRight.classList.add("arrows-up-down-left-right");
+        imageContainer.appendChild(arrowsUpDownLeftRight);
+
+        //Fin insertion de l'icone fléchée
+
+
         //Insertion de l'image corbeille pour chaque image
         const imgSupprimerElement = document.createElement('img');//Je crée ma corbeille
         imgSupprimerElement.src = 'assets/icons/trash-2-16.png';//Je cible ma corbeille dans mon dossier assets
