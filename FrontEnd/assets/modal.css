@@ -102,6 +102,14 @@
   position: relative;/*Me permet de positionner la poubelle en hau a droite*/
 }
 
+.arrows-up-down-left-right {
+  position: absolute; /*Me permet de positionner la poubelle en hau a droite*/
+  top: 15px;
+  left: 70px;
+  background-color: black;
+}
+
+
 .delete-icon { /*Icone poubelle pour supprimer les projets, se trouve en haut à droite de chaque image, icone ajoutée en JS*/
   position: absolute; /*Me permet de positionner la poubelle en hau a droite*/
   top: 15px;
@@ -109,9 +117,9 @@
   background-color: black;
 }
 
-.modal-image-container:last-child img {
+/*.modal-image-container:last-child img {
   margin-right: auto;
-}
+}*/
 
 .modal-image {
   display: inline-block; /*Me permet de mettre les images les unes à coté des autres*/
@@ -163,6 +171,13 @@
   position: relative;
 }
 
+#formulaire {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
+
 .fa.fa-image {
   font-size: 100px;
   color: #b9c5cc;
@@ -179,11 +194,8 @@
   margin-bottom: 10px;
 }
 
-#formulaire {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  align-items: center;
+#file {
+  display: none; /*Je le fais disparaitre car ce n'est pas joli de laisser choisir un fichier visible*/
 }
 
 .label-title {
