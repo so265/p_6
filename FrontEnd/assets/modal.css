@@ -103,12 +103,15 @@
 }
 
 .arrows-up-down-left-right {
-  position: absolute; /*Me permet de positionner la poubelle en hau a droite*/
+  position: absolute; /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
   top: 15px;
   left: 70px;
-  background-color: black;
-}
+  display: none;
+  }
 
+  .modal-image-container:hover .arrows-up-down-left-right { /*Mettre le hover sur le container*/
+    display: block;
+  }
 
 .delete-icon { /*Icone poubelle pour supprimer les projets, se trouve en haut à droite de chaque image, icone ajoutée en JS*/
   position: absolute; /*Me permet de positionner la poubelle en hau a droite*/
