@@ -42,15 +42,19 @@
 	<a href="#" id="arrow"> <i class="fas fa-arrow-left"></i></a>
 	<p class="close-modal">X</p>
 	<h3 class="title-modal">Ajout photo</h3>
-	<div class="add-photo"><!--Ici se trouvera l'image à ajouter-->
-		<div class="divIconValidate">
-			<i class="fa fa-image"></i>
-		</div>
-		<button class="button-add-photo">+ Ajouter photo</button>
-		<p class="picture-format">jpg, png : 4mo max</p>
-	</div>
+	
 
 	<form id="formulaire"  enctype="multipart/form-data">
+
+		<div class="add-photo"><!--Ici se trouvera l'image à ajouter-->
+			<div class="divIconValidate">
+				<i class="fa fa-image"></i>
+			</div>
+			<button class="button-add-photo">+ Ajouter photo</button>
+			<p class="picture-format">jpg, png : 4mo max</p>
+		</div>
+		<input type="file" id="file" name="file"> <!--Cet élément permet aux utilisateurs de sélectionner un fichier à partir de leur système de fichiers local, Ce code HTML crée un élément d'entrée de type "file" (fichier) dans un formulaire.-->
+
 		<label class="label-title" for="title">Titre</label>
 		<input type="text" name="title" id="title-add-photo">
 		<label class="label-category" for="category">Catégorie</label>
