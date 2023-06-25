@@ -199,7 +199,7 @@
 }
 
 #input-file {
-  display: none; /*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
+  /*display: none;*//*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
 }
 
 .label-title {
