@@ -3,7 +3,7 @@
 const form = document.getElementById("formulaire-add-photo");
  //const btnAddPhoto = document.querySelector(".button-add-photo");
  const btnAddPhoto = document.getElementById("button-add-photo");
- const inputFile = document.getElementById("input-file");
+ const inputFile = document.querySelector("#input-file");
 
  
    // J'ajoute un gestionnaire d'événement pour le changement de fichier
@@ -18,7 +18,7 @@ const titleInput = modalAddPhoto.querySelector(".label-title");
 const categorySelect = modalAddPhoto.querySelector("#categorie-add-photo");
 const buttonValidate = modalAddPhoto.querySelector(".valider-photo");
 
-// Ajouter un écouteur d'événements input aux champs de formulaire
+/*// Ajouter un écouteur d'événements input aux champs de formulaire
 [titleInput, categorySelect].forEach((field) => {
   field.addEventListener("input", () => {
     // Vérifier si tous les champs sont remplis
@@ -29,7 +29,7 @@ const buttonValidate = modalAddPhoto.querySelector(".valider-photo");
       ? "#1D6154"
       : "";
   });
-});
+});*/
 
 buttonValidate.addEventListener("click", (event) => {
   event.preventDefault();
@@ -68,29 +68,17 @@ const img = document.createElement("img");
 img.src = URL.createObjectURL(file); //J'utilise l'url du fichier téléchargé
 img.classList.add("image-ajout");
 const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
-divAddPhoto.innerHTML=""; //Efface le contenu existant
-/*divAddPhoto.appendChild(img);
-divAddPhoto.querySelector(".input-file").style.display = "none";
-divAddPhoto.querySelector(".picture-format").style.display = "none";
-divAddPhoto.querySelector(".divIconValidate").style.display = "none";
-divAddPhoto.querySelector("#button-add-photo").style.display = "none";*/
+divAddPhoto.innerHTML=""; //Efface le contenu existant, cette ligne permet d'effacer tous les textes et icon présents avant le téléchargement de l'image
+divAddPhoto.appendChild(img);
+//divAddPhoto.querySelector("#input-file").style.display = "none";
+//divAddPhoto.querySelector(".picture-format").style.display = "none";
+//divAddPhoto.querySelector(".divIconValidate").style.display = "none";
+//divAddPhoto.querySelector("#button-add-photo").style.display = "none";
 
 
 });
 
 
 
-
-/*btnAddPhoto.addEventListener("click", () => {
-     inputFile.click();
-   });*/
-
-  
-  
-  //Au click sur l'élément input la boîte de dialogue de sélection de fichier s'ouvre
-
-
-
-  
-
+//nouveau
 
