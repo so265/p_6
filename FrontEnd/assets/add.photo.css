@@ -1,8 +1,11 @@
 /*add.photo.css*/
 
 /*Fichier pour ajouter du style a la 2éme modale lors de l'ajout des photos*/
-/*C'est juste le formulaire de la 2éme modale*/
 
+/*C'est juste le formulaire de la 2éme modale*/
+.second-modal {
+    text-align: center;  /*Permet de centrer les input et titre au milieu*/
+  }
 
 
 #button-add-photo {
