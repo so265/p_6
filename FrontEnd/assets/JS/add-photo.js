@@ -11,7 +11,7 @@ const form = document.getElementById("formulaire-add-photo");
     const file = inputFile.files[0]; // C'est pour récupérer le fichier sélectionné
     
       // Vous pouvez traiter le fichier ici, par exemple l'envoyer vers le serveur ou afficher un aperçu de l'image
-      console.log(file);
+      console.log("Fichier sélectionné :",file);
 
 const modalAddPhoto = document.querySelector(".second-modal");
 const titleInput = modalAddPhoto.querySelector(".label-title");
@@ -49,24 +49,41 @@ buttonValidate.addEventListener("click", (event) => {
     .then((data) => {
       console.log(data);
       // Fermer la modale après l'ajout réussi de la nouvelle image
-      closeModalHandler();
+      closeModal()
     })
     .catch((error) => console.error(error));
 });
 // remplacer div ajouter un photo par l'image sélctionné 
+
+
+/////Ajout
+
+btnAddPhoto.addEventListener("click", () => {
+  inputFile.click();
+});///////////////////////
+
+
+
 const img = document.createElement("img");
-img.src = URL.createObjectURL(file);
+img.src = URL.createObjectURL(file); //J'utilise l'url du fichier téléchargé
 img.classList.add("image-ajout");
-const divAddPhoto = modalAddPhoto.querySelector("#button-add-photo");
+const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
+divAddPhoto.innerHTML=""; //Efface le contenu existant
 divAddPhoto.appendChild(img);
-/*divAddPhoto.querySelector(".button-add-poto").style.display = "none";
-divAddPhoto.querySelector(".picture-format").style.display = "none";*/
+divAddPhoto.querySelector("#input-file").style.display = "none";
+divAddPhoto.querySelector(".picture-format").style.display = "none";
+divAddPhoto.querySelector(".divIconValidate").style.display = "none";
+divAddPhoto.querySelector("#button-add-photo").style.display = "none";
+
+
 });
 
 
-btnAddPhoto.addEventListener("click", () => {
+
+
+/*btnAddPhoto.addEventListener("click", () => {
      inputFile.click();
-   });
+   });*/
 
   
   
