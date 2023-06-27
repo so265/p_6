@@ -10,7 +10,7 @@ const form = document.getElementById("formulaire-add-photo");
   inputFile.addEventListener("change", () => {
     const file = inputFile.files[0]; // C'est pour récupérer le fichier sélectionné
     
-      // Vous pouvez traiter le fichier ici, par exemple l'envoyer vers le serveur ou afficher un aperçu de l'image
+      // Je peux traiter le fichier ici, par exemple l'envoyer vers le serveur ou afficher un aperçu de l'image
       console.log("Fichier sélectionné :",file);
 
 const modalAddPhoto = document.querySelector(".second-modal");
@@ -48,12 +48,12 @@ buttonValidate.addEventListener("click", (event) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      // Fermer la modale après l'ajout réussi de la nouvelle image
+      // je ferme la modale après l'ajout réussi de la nouvelle image
       closeModal()
     })
     .catch((error) => console.error(error));
 });
-// remplacer div ajouter un photo par l'image sélctionné 
+
 
 
 /////Ajout
@@ -81,4 +81,5 @@ divAddPhoto.appendChild(img);
 
 
 //nouveau
+
 
