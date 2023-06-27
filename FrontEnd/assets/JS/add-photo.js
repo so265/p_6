@@ -70,7 +70,7 @@ img.classList.add("image-ajout");
 const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
 divAddPhoto.innerHTML=""; //Efface le contenu existant
 divAddPhoto.appendChild(img);
-divAddPhoto.querySelector("#input-file").style.display = "none";
+divAddPhoto.querySelector(".input-file").style.display = "none";
 divAddPhoto.querySelector(".picture-format").style.display = "none";
 divAddPhoto.querySelector(".divIconValidate").style.display = "none";
 divAddPhoto.querySelector("#button-add-photo").style.display = "none";
