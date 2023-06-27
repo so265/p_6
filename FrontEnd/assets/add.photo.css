@@ -1,0 +1,102 @@
+/*add.photo.css*/
+
+/*Fichier pour ajouter du style a la 2éme modale lors de l'ajout des photos*/
+/*C'est juste le formulaire de la 2éme modale*/
+
+
+
+#button-add-photo {
+    background-color: transparent;
+    border: none;
+}
+
+.image-ajout {
+    margin-bottom: 5px;
+}
+
+.add-photo {
+    text-align: center;
+    height: 200px;
+    width: 420px;
+    margin: auto;
+    background: #e8f1f7;
+    padding-top: 20px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  #formulaire {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+  }
+  
+  .fa.fa-image {
+    font-size: 100px;
+    color: #b9c5cc;
+  }
+  
+  #button-add-photo {
+    width: 173px;
+    height: 36px;
+    left: 633px;
+    top: 881px;
+    background: #cbd6dc;
+    border-radius: 2050px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  #input-file {
+    /*display: none;/*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
+  }
+  
+  .label-title {
+    margin-right: 380px;
+    margin-bottom: 10px;
+  }
+  
+  .label-category {
+    margin-right: 350px;
+    margin-bottom: 10px;
+  }
+  
+  #title-add-photo,
+  #categorie-add-photo {
+    margin-bottom: 40px;
+    width: 420px;
+    height: 51px;
+    left: 510px;
+    top: 1011px;
+    background: #ffffff;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    border: none;
+  }
+  
+  .valider-photo {
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    background: #a7a7a7;
+    width: 237px;
+    height: 36px;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    border: none;
+  }
+  
+  #title-add-photo,
+  #categorie-add-photo{
+  outline-style: none; /*Pour enlever les bordures au ckick sur la souris*/
+  }
+  
+  
