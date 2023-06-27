@@ -54,15 +54,12 @@
     /*display: none;/*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
   }
   
-  .label-title {
-    margin-right: 380px;
-    margin-bottom: 10px;
+  .label-title,
+  .label-category {
+    display: block; /*Cette propriéte permet de décoller titre et catégorie des inputs(champs dde saisie)*/
+    margin-top: 20px;
   }
   
-  .label-category {
-    margin-right: 350px;
-    margin-bottom: 10px;
-  }
   
   #title-add-photo,
   #categorie-add-photo {
