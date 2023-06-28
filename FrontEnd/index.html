@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/login.css">
 	<link rel="stylesheet" href="./assets/modal.css">
-	<link rel="stylesheet" href="./assets/add.photo.css">
+	<link rel="stylesheet" href="./assets/add-photo.css">
 </head>
 
 <body>
@@ -45,6 +45,7 @@
 	<p class="close-modal">X</p>
 	<h3 class="title-modal">Ajout photo</h3>
 	
+	<!--Formulaire-->
 
 	<form id="formulaire-add-photo"  enctype="multipart/form-data">
 
@@ -54,12 +55,10 @@
 			</div>
 			<button id="button-add-photo">+ Ajouter photo
 				<input type="file" id="input-file" name="file"> <!--Cet élément permet aux utilisateurs de sélectionner un fichier à partir de leur système de fichiers local, Ce code HTML crée un élément d'entrée de type "file" (fichier) dans un formulaire.-->
-				<p class="picture-format">jpg, png : 4mo max</p>
+				
 			</button>
-			
+			<p class="picture-format">jpg, png : 4mo max</p>
 		</div>
-		
-
 		<label class="label-title" for="title">Titre</label>
 		<input type="text" name="title" id="title-add-photo">
 		<label class="label-category" for="category">Catégorie</label>
@@ -68,6 +67,7 @@
 		<div class="bottom-line-secondModal"></div><!--Ligne grise en bas de la modale-->
 		<button type="submit" class="valider-photo">valider</button>
 </div>
+<!--Fin formulaire-->
 <!--Fin deuxiéme modale-->
 
 </aside>
