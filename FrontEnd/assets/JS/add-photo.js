@@ -42,18 +42,14 @@ buttonValidate.addEventListener("click", (event) => { //j'écoute au clic l'éve
 });
 
 
-
-/////Ajout
-
 btnAddPhoto.addEventListener("click", () => { //la méthode click() est appelée sur l'élément inputFile, permet à l utilisateur de choisir une photo
   inputFile.click();
 });///////////////////////
 
 
-
 const img = document.createElement("img");
 img.src = URL.createObjectURL(file); //J'utilise l'url du fichier téléchargé. Cela crée une URL temporaire qui représente le contenu du fichier sélectionné.
-img.classList.add("image-ajout");
+img.classList.add("image-ajout"); //J'applique du style à mon img, je vais récupérer la class ds add.photo.css
 const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
 divAddPhoto.innerHTML=""; //Efface le contenu existant, cette ligne permet d'effacer tous les textes et icon présents avant le téléchargement de l'image et d'afficher que la nvelle image
 divAddPhoto.appendChild(img); //divAddPhoto = div ou se trouve l'image à pour enfant la nouvelle image, cela permet d'insérer l'image et de la voir
@@ -61,5 +57,4 @@ divAddPhoto.appendChild(img); //divAddPhoto = div ou se trouve l'image à pour e
 
 
 
-
-
+//J'affiche l'image dans mon portofolio e dans la modale
