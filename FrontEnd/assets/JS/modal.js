@@ -145,7 +145,7 @@ arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléc
 galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal" correspond à ma gallery d'image
   if (e.target.classList.contains("delete-icon")) { //delete-icon ds modal-css, ligne 105, c'est ma corbeille//"e.target", je determine l'élément réellement cliqué, je vérifie que cet élement posséde la classe"delete-icon"
     const imageContainer = e.target.parentElement; //Avec"parentElement", je remonte jusqu'à l'élément conteneur de l'image qui est "imageContainer" qui contient l'image + corbeille
-    //const imageId = imageContainer.dataset.id; // je mets en commentaire pour pas vraiment supprimer l'image/j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
+    const imageId = imageContainer.dataset.id; // je mets en commentaire pour pas vraiment supprimer l'image/j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
 //Lorsque je  clique sur la corbeille j'utilise imageContainer.dataset.id pour récupérer la valeur de l'attribut data-id, qui représente l'identifiant de l'image correspondante.
 
     fetch(`http://localhost:5678/api/works/${imageId}`, {  // L'URL de la requête est construite en utilisant l'ID de l'image, "imageId"=variable L137, permet de spécifier quelle image doit être suprimée

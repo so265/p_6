@@ -130,6 +130,7 @@
   height: 130px;
   object-fit: cover; /*Ainsi les images ne sont pas déformées*/
   margin: 10px;
+  object-fit: cover;
 }
 
 .editer {
