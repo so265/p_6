@@ -102,16 +102,22 @@
   position: relative;/*Me permet de positionner la poubelle en hau a droite*/
 }
 
-.arrows-up-down-left-right {
-  position: absolute; /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
+.fas.fa-expand-arrows-alt {
+  transform: rotate(45deg);
+  position: absolute;
+  /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
   top: 15px;
   left: 70px;
+  font-size: 14px;
+  color: white;
+  background-color: black;
   display: none;
-  }
+}
 
-  .modal-image-container:hover .arrows-up-down-left-right { /*Mettre le hover sur le container*/
-    display: block;
-  }
+.modal-image-container:hover .fas.fa-expand-arrows-alt {
+  /*Mettre le hover sur le container*/
+  display: block;
+}
 
 .delete-icon { /*Icone poubelle pour supprimer les projets, se trouve en haut à droite de chaque image, icone ajoutée en JS*/
   position: absolute; /*Me permet de positionner la poubelle en hau a droite*/

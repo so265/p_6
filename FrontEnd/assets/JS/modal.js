@@ -55,9 +55,9 @@ function displayImagesInModal() {
         image.classList.add("modal-image"); //j'ajoute la class css créee ds modal.css pour styliser l'image
 
         //Insertion de l'icone fléchée pour chaque image qui apparit au hover
-       const arrowsUpDownLeftRight = document.createElement("img"); //J'ajoute l' image de la fleche a coté de la corbeille, cette icone sera vsible au hover
-        arrowsUpDownLeftRight.src = `assets/icons/arrow-multi.png`;
-        arrowsUpDownLeftRight.classList.add("arrows-up-down-left-right");
+       const arrowsUpDownLeftRight = document.createElement("i"); //J'ajoute l' image de la fleche a coté de la corbeille, cette icone sera vsible au hover
+        //arrowsUpDownLeftRight.classList.add= `assets/icons/arrow-multi.png`;
+        arrowsUpDownLeftRight.classList.add("fa-expand-arrows-alt");
         imageContainer.appendChild(arrowsUpDownLeftRight);
 
         //Fin insertion de l'icone fléchée
