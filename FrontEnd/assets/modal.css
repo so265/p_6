@@ -102,10 +102,9 @@
   position: relative;/*Me permet de positionner la poubelle en hau a droite*/
 }
 
-.fas.fa-expand-arrows-alt {
-  transform: rotate(45deg);
-  position: absolute;
-  /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
+.fas.fa-expand-arrows-alt { /*provient de fontawesome*/
+  transform: rotate(45deg); /*Me permet de faire une rotation de l'icone*/
+  position: absolute;  /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
   top: 15px;
   left: 70px;
   font-size: 14px;
@@ -114,8 +113,7 @@
   display: none;
 }
 
-.modal-image-container:hover .fas.fa-expand-arrows-alt {
-  /*Mettre le hover sur le container*/
+.modal-image-container:hover .fas.fa-expand-arrows-alt {/*Il faut mettre le hover sur le container, fléche apparait juste au hover*/
   display: block;
 }
 

@@ -56,9 +56,8 @@ function displayImagesInModal() {
 
         //Insertion de l'icone fléchée pour chaque image qui apparit au hover
        const arrowsUpDownLeftRight = document.createElement("i"); //J'ajoute l' image de la fleche a coté de la corbeille, cette icone sera vsible au hover
-        //arrowsUpDownLeftRight.classList.add= `assets/icons/arrow-multi.png`;
-        arrowsUpDownLeftRight.classList.add("fa-expand-arrows-alt");
-        imageContainer.appendChild(arrowsUpDownLeftRight);
+       arrowsUpDownLeftRight.classList.add("fas", "fa-expand-arrows-alt");
+       imageContainer.appendChild(arrowsUpDownLeftRight);
 
         //Fin insertion de l'icone fléchée
 
