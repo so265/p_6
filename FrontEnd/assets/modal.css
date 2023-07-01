@@ -118,6 +118,8 @@
   top: 15px;
   right: 15px;
   background-color: black;
+  background-size: 200%; /* Ajustez la valeur pour agrandir ou réduire le fond de l'icône */
+  color: white;
 }
 
 /*.modal-image-container:last-child img {
