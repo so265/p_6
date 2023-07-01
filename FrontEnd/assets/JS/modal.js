@@ -66,7 +66,7 @@ function displayImagesInModal() {
         //Insertion de l'image corbeille pour chaque image
         const imgSupprimerElement = document.createElement('i');//Je crée ma corbeille
         imgSupprimerElement.classList.add("fas", "fa-trash-alt");//Je cible ma corbeille dans mon dossier assets
-        imgSupprimerElement.classList.add("delete-icon"); //class crée ds modal.css ligne 104
+        imgSupprimerElement.classList.add("delete-icon"); //class crée ds modal.css ligne 116
         imageContainer.appendChild(imgSupprimerElement);
         //Fin insertion image poubelle
 
