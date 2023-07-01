@@ -56,15 +56,15 @@ function displayImagesInModal() {
 
         //Insertion de l'icone fléchée pour chaque image qui apparit au hover
        const arrowsUpDownLeftRight = document.createElement("i"); //J'ajoute l' image de la fleche a coté de la corbeille, cette icone sera vsible au hover
-       arrowsUpDownLeftRight.classList.add("fas", "fa-expand-arrows-alt");
-       imageContainer.appendChild(arrowsUpDownLeftRight);
+       arrowsUpDownLeftRight.classList.add("fas", "fa-expand-arrows-alt");//J'ai juste besoin d'ajouter des classes à une balise <i> pour utiliser les icons fontawsome
+       imageContainer.appendChild(arrowsUpDownLeftRight);//permet de faire apparitre la fléche
 
         //Fin insertion de l'icone fléchée
 
 
         //Insertion de l'image corbeille pour chaque image
-        const imgSupprimerElement = document.createElement('i');//Je crée ma corbeille
-        imgSupprimerElement.classList.add("fas", "fa-trash-alt");//Je cible ma corbeille dans mon dossier assets
+        const imgSupprimerElement = document.createElement('i');//Je crée mon icon corbeille
+        imgSupprimerElement.classList.add("fas", "fa-trash-alt");//J'ai juste besoin d'ajouter des classes à une balise <i> pour utiliser les icons fontawsome
         imgSupprimerElement.classList.add("delete-icon"); //class crée ds modal.css ligne 116
         imageContainer.appendChild(imgSupprimerElement);
         //Fin insertion image poubelle
