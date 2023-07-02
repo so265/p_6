@@ -1,5 +1,5 @@
 //add-photo.js
-//Ce fichier concerne juste le formulaire de la 2éme modale en ligne 49 de index.mtml, me permet d'ajouter une photo à la base de données.u portofolio
+//Ce fichier concerne juste le formulaire de la 2éme modale en ligne 49 de index.mtml, me permet d'ajouter une photo à la base de données via une requete POST.
 
 const form = document.getElementById("formulaire-add-photo");
 const btnAddPhoto = document.getElementById("button-add-photo");

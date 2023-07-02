@@ -1,4 +1,5 @@
 //modal.js
+// Gère principalement l'ouverture et la fermeture des deux modales, ainsi que l'affichage des images dans la première modale
 
 /**************1ére modale****************/
 // Je récupére les éléments de la modale et les boutons pour ouvrir et fermer la modale
