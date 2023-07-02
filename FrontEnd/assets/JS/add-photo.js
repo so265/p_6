@@ -1,72 +1,79 @@
 //add-photo.js
+//Ce fichier concerne juste le formulaire de la 2éme modale en ligne 49 de index.mtml, me permet d'ajouter une photo à la base de données.u portofolio
 
 const form = document.getElementById("formulaire-add-photo");
- const btnAddPhoto = document.getElementById("button-add-photo");
- const inputFile = document.querySelector("#input-file");
- const modalAddPhoto = document.querySelector(".second-modal");  //Ces variables rprésentent différents éléments de la modal pour ajouter une photo
- const titleInput = modalAddPhoto.querySelector("#title-add-photo"); //Il faut bien selectionner l'ID de l'input l.63 ds index.html pour que le titre apparaisse sous la nouvelle image séléctionée
- const select = document.querySelector('#categorieSelect')
- const buttonValidate = modalAddPhoto.querySelector(".valider-photo");
+const btnAddPhoto = document.getElementById("button-add-photo");
+const inputFile = document.querySelector("#input-file");
+const modalAddPhoto = document.querySelector(".second-modal");
+const titleInput = modalAddPhoto.querySelector("#title-add-photo");
+const select = document.querySelector("#categorieSelect");
+const buttonValidate = modalAddPhoto.querySelector(".valider-photo");
 
-
-  // Récupération des catégories
-  
-  fetch("http://localhost:5678/api/categories" , {
-    method : "GET"
-  }).then((res) => res.json())
+// Récupération des catégories
+fetch("http://localhost:5678/api/categories", {
+  method: "GET"
+})
+  .then((res) => res.json())
   .then((categories) => {
-      categories.forEach(category => {
-        const option = document.createElement("option")
-        option.value = category.id
-        option.innerHTML = category.name
-        select.appendChild(option)
-      });
-  })
-
- 
-   // J'ajoute un gestionnaire d'événement pour le changement de fichier
-  inputFile.addEventListener("change", () => { ///J'écoute l'événement change qui se déclenche lorsque l'utilisateur sélectionne un fichier
-    const file = inputFile.files[0]; // C'est pour récupérer le fichier sélectionné à l'aide de inputFile.files[0] 
-    
-    console.log("Fichier sélectionné :",file); //Le message ds la console sera fichier séléctionné: avec le contenu de la variable file qui représente l'image séléctionné
-    const img = document.createElement("img");
-    img.src = URL.createObjectURL(file); //J'utilise l'url du fichier téléchargé. Cela crée une URL temporaire qui représente le contenu du fichier sélectionné.
-    img.classList.add("image-ajout"); //J'applique du style à mon img, je vais récupérer la class ds add.photo.css
-    const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
-    divAddPhoto.innerHTML=""; //Efface le contenu existant, cette ligne permet d'effacer tous les textes et icon présents avant le téléchargement de l'image et d'afficher que la nvelle image
-    divAddPhoto.appendChild(img); //divAddPhoto = div ou se trouve l'image à pour enfant la nouvelle image, cela permet d'insérer l'image et de la voir
-   
-  const figure = img.parentNode; //Je récupére l'élément parent de "img" qui est la div avec la class add-photo ligne 52 ds index.html
-  //console.log(figure);
-  const figcaption = document.createElement("figcaption"); //Je crée ma légende
-  figcaption.innerText = titleInput.value; //Ici le contenu text de l'élément figcaption est défini. en utilisant titleInput dc l'input l.63 ds index.html, j'affiche le titre
-  figure.appendChild(figcaption); //figure a pour enfant figcaption
-
-   
+    categories.forEach((category) => {
+      const option = document.createElement("option");
+      option.value = category.id;
+      option.innerHTML = category.name;
+      select.appendChild(option);
+    });
   });
 
-buttonValidate.addEventListener("click", (event) => { //j'écoute au clic l'évenement sur le bouton de validation
-  event.preventDefault();//preventDefault() est appelée sur l'objet event pour empêcher le comportement par défaut du navigateur lors du clic sur le bouton. Cela évite aussi que la page soit rechargée.
-  const formData = new FormData(); // Cela crée une instance de l'objet FormData utilisée pour envoyer les données du formulaire.
-  formData.append("image", inputFile.files[0]); //avec la méthode append() , j'ajoute les données de formulaire à l'instance "formData", fichier, titre et catégory
-  formData.append("title",titleInput.value); //L'attribut "title" est utilisé pour identifier le titre côté serveur.
-  formData.append("category", select.value);//Lorsque je séléctionne une valeur ds la liste déroulante(objets, hotels et restaurants ou appartements), celle-ci s'ajoute à l'instance "formData".L'attribut "category" est utilisé pour identifier la catégorie côté serveur. 
+  //
+inputFile.addEventListener("change", () => { 
+  const file = inputFile.files[0];
+  console.log("Fichier sélectionné :", file);
 
+  if (!file) { //Je verifie la propriété files de inpute.files, si input.files est vide = pas de fichier séléctionné, j'affiche une alert de message.
+    // Afficher un message d'erreur
+    alert("Veuillez sélectionner une photo.");
+    return; // return arrête l'exécution de la fonction. Cela empêche l'envoi des données du formulaire et la fermeture de la modal.
+  }
+
+  const img = document.createElement("img");
+  img.src = URL.createObjectURL(file);
+  img.classList.add("image-ajout");
+  const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
+  divAddPhoto.innerHTML = "";
+  divAddPhoto.appendChild(img);
+
+  const figure = img.parentNode;
+  const figcaption = document.createElement("figcaption");
+  figcaption.innerText = titleInput.value;
+  figure.appendChild(figcaption);
+});
+
+buttonValidate.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  if (!inputFile.files || inputFile.files.length === 0) {
+    // Afficher un message d'erreur
+    alert("Veuillez sélectionner une photo.");
+    return; // Arrêter l'exécution de la fonction pour empêcher la fermeture de la modal
+  }
+
+  event.stopPropagation();
   
+  const formData = new FormData();
+  formData.append("image", inputFile.files[0]);
+  formData.append("title", titleInput.value);
+  formData.append("category", select.value);
 
-  fetch("http://localhost:5678/api/works", { //je fais une requéte fetch 
-    method: "POST", //méthode post pour envoyer des données à un serveur, ici je l'utilse pour envoyer les données du formulaire (fichier sélectionné, le titre et la catégorie de la photo)au serveur à l'URL spécifiée ("http://localhost:5678/api/works").lE serveur peut enregistrer la nouvelle photo ds une base de données
+  fetch("http://localhost:5678/api/works", {
+    method: "POST",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`, //je récupére un jeton d'autorisation(token) à partir du local storage
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: formData,
   })
-    .then((response) => response.json()) //requéte réussie=convertie au format JSON
+    .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      // je ferme la modale après l'ajout réussi de la nouvelle image
-      closeModal() //aprés l'ajout réussie de la photo, je ferme la modale en appelant la fonction closeModal() ds modal.js ligne 112
+      closeModal();
     })
     .catch((error) => console.error(error));
 });
-
