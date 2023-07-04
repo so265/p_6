@@ -48,12 +48,18 @@ inputFile.addEventListener("change", () => {
 });
 
 buttonValidate.addEventListener("click", (event) => {
-  event.preventDefault();
+  event.preventDefault(); //empêche le rechargement de la page ou la soumission du formulaire car les conditions de sélection d'une photo ne sont pas remplies
 
-  if (!inputFile.files || inputFile.files.length === 0) {
+  if (!inputFile.files || inputFile.files.length === 0) { //Si l'une de ces conditions est vraie, cela signifie qu'aucun fichier n'est sélectionné
     // Afficher un message d'erreur
     alert("Veuillez sélectionner une photo.");
     return; // Arrêter l'exécution de la fonction pour empêcher la fermeture de la modal
+  }
+
+  if (!titleInput.value || select.value === "") {
+    // Afficher un message d'erreur si le titre ou la catégorie ne sont pas sélectionnés
+    alert("Veuillez remplir tous les champs du formulaire.");
+    return; // Arrêter l'exécution de la fonction pour empêcher l'envoi du formulaire
   }
 
   event.stopPropagation();
