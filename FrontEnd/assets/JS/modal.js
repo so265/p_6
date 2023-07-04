@@ -40,9 +40,8 @@ function displayImagesInModal() {
     .then((works) => {
     
       //const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); declarer en ligne 8, en variable globale
-      // Effacer les images précédentes dans le modal
-      galleryImagesInModal.innerHTML = "";
-
+    
+      galleryImagesInModal.innerHTML = ""; //J'efface tt le contenu précédent
       // Parcourir les works et créer les éléments d'image
       works.forEach((work) => { //Je fais une boucle pour chaque image, chaque image est parcourue.
         const imageContainer = document.createElement("div");
