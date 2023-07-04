@@ -72,7 +72,7 @@ buttonValidate.addEventListener("click", (event) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data); //data représente les données renvoyées par l'API
       event.stopPropagation();  //a voir
       alert("La photo a été téléchargée avec succès!");
     })
