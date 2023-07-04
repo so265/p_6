@@ -157,6 +157,7 @@ galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal
       .then((response) => {
         console.log(response);
         if (response.ok) { //Si la réponse de la requête est response.ok, l'image est supprimée
+          alert("Voulez-vous supprimer la photo?");
           
           imageContainer.remove(); //donc je supprime l'élément "imageContainer"= image + corbeille du DOM en utilisant imageContainer.remove().
         } else {//si la reponse n'est pas "response.ok"

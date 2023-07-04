@@ -73,7 +73,8 @@ buttonValidate.addEventListener("click", (event) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      closeModal();
+      event.stopPropagation();  //a voir
+      alert("La photo a été téléchargée avec succès!");
     })
     .catch((error) => console.error(error));
 });
