@@ -44,11 +44,11 @@ function displayImagesInModal() {
       galleryImagesInModal.innerHTML = "";
 
       // Parcourir les works et créer les éléments d'image
-      works.forEach((work) => { //Je fais une boucle pour chaque image, chaque icon
+      works.forEach((work) => { //Je fais une boucle pour chaque image, chaque image est parcourue.
         const imageContainer = document.createElement("div");
         imageContainer.classList.add("modal-image-container");
 
-        imageContainer.dataset.id = work.id//dataset est une propriété des éléments du DOM
+        imageContainer.dataset.id = work.id// la propriété dataset de l'élément imageContainer est utilisée pour définir un attribut data-id
 
         const image = document.createElement("img");
         image.src = work.imageUrl;
@@ -75,7 +75,7 @@ function displayImagesInModal() {
         editLabel.innerText = "Éditer";
         editLabel.classList.add("editer"); //Je cree une class ds modal.css qui s'appelle editer
 
-        galleryImagesInModal.appendChild(imageContainer);
+        galleryImagesInModal.appendChild(imageContainer);//l'élément imageContainer est ajouté à l'élément galleryImagesInModal, ce qui affiche la nouvelle image avec ses icônes dans la première modale et le portofolio.
         imageContainer.appendChild(image);
         imageContainer.appendChild(editLabel);
 
