@@ -50,14 +50,18 @@ fetch("http://localhost:5678/api/categories")
       });
 
       boutonFiltreTous.addEventListener("mouseover", function (e) { //Au survol les boutons des filtres deviennent verts
-        e.target.classList.add("hover");
+        e.target.classList.add("hover"); //"e.target représente le bouton survolé"
+      });
+
+      boutonFiltreTous.addEventListener("mouseout", function (e) { //Les filtres reviennent à leurs états initial aprés le survol
+        e.target.classList.remove("hover");
       });
 
       boutonFiltre.addEventListener("mouseover", function (e) {
         e.target.classList.add("hover");
       });
 
-      boutonFiltre.addEventListener("mouseout", function (e) {
+      boutonFiltre.addEventListener("mouseout", function (e) { //Les filtres reviennent à leurs états initial aprés le survol
         e.target.classList.remove("hover");
       });
     });
