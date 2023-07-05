@@ -8,8 +8,8 @@ if (localStorage.getItem("token")) { /*Le token me permet de voir si l'utilisate
     btn.addEventListener("click", function(e){
         e.preventDefault();
        
-        localStorage.removeItem("token") //La méthode removeItem() supprime l'élément de l'objet de stockage spécifié.
-        window.location.reload(); //La location.reload()méthode qui recharge l'URL actuelle,
+        localStorage.removeItem("token") //La méthode removeItem() supprime l'élément de l'objet de stockage spécifié, l'utilisateur est déconnécté.
+        window.location.reload(); //La location.reload()méthode qui recharge la page aprés la deconnexion
     })
 }else{
 document.querySelector("#topBarEdition").style.display ="none"; /*aussi non la barre noire n'apparait si non connecté*/

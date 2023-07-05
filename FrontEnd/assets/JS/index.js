@@ -5,7 +5,7 @@
 let gallery = document.getElementsByClassName("gallery")[0];
 let filtres = document.getElementsByClassName("filtres")[0];
 
-fetch("http://localhost:5678/api/works")
+fetch("http://localhost:5678/api/works") //Requête Get vers cette URL pour récupérer une liste de travaux à afficher ds le portofolio
   .then((response) => response.json())
   .then((works) => {
     for (let i = 0; i < works.length; i++) {
@@ -24,7 +24,7 @@ fetch("http://localhost:5678/api/works")
     }
   });
 
-fetch("http://localhost:5678/api/categories")
+fetch("http://localhost:5678/api/categories") //requête GET vers l'URL pour récupérer une liste de catégories pour le portfolio
   .then((response) => response.json())
   .then((categories) => {
     const boutonFiltreTous = document.createElement("button"); //Je déclare la variable en dehors de la boucle pour pouvoir la réutiliser en ligne 57
@@ -92,14 +92,14 @@ function displayWork(e, id) {
   });
 }
 
-function hideFilters() {
-  if (localStorage.getItem("token")) {
+function hideFilters() {//cette fonction vérifie s'il existe une valeur "token" dans le localStorage
+  if (localStorage.getItem("token")) { //Si oui les filtres sont cachés
     filtres.style.display = "none";
   } else {
-    filtres.style.display = "flex";
+    filtres.style.display = "flex"; //aussi non restent apparents
   }
 }
-hideFilters();
+hideFilters(); //J'appele la fonction pour l'éxécuter
 
 function displayEdit() {
   if (localStorage.getItem("token")) {
