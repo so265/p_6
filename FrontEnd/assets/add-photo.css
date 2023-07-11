@@ -16,6 +16,10 @@
 
 .image-ajout {
     margin-bottom: 5px;
+    object-fit: cover;
+    
+      image-rendering: crisp-edges; /* Utilisez cette propriété pour améliorer la netteté de l'image */
+    
 }
 
 .add-photo {

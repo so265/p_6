@@ -10,12 +10,12 @@ const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); 
 
 // Function pour fermer la modale
 function closeModal() {
-  modalContainer.style.display = "none";
+  modalContainer.style.display = "none"; 
 }
 
 //Fonction pour fermer la modale quand je click en dehors de la modale
 function outsideModalClick(e) {
-  if (e.target === modalContainer) {
+  if (e.target === modalContainer) {//Si l'élément sur lequel l'utilisateur a cliqué correspond à modalContainer, cela signifie que l'utilisateur a cliqué en dehors de la modale. 
     //La propriété target de l'objet event fait référence à l'élément DOM sur lequel l'événement a été initialement déclenché, c'est-à-dire l'élément sur lequel l'utilisateur a effectué une action qui a déclenché l'événement.
     closeModal();
   }
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {//"DOMContentLoaded" gestio
 // Function pour ouvrir la 1ére modale
 function openModal() {
   modalContainer.style.display = "flex";
-  displayImagesInModal(); // J'appele la fonction l.43 pour afficher les images dans ma modale, lorsque je l'ouvre
+  displayImagesInModal(); // J'appele la fonction l.37 pour afficher les images dans ma modale, lorsque je l'ouvre
 }
 
 //J'ajoute les images dans la modal
@@ -38,29 +38,25 @@ function displayImagesInModal() {
   fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((works) => {
-    
-      //const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); declarer en ligne 8, en variable globale
+    //const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); declarer en ligne 8, en variable globale
     
       galleryImagesInModal.innerHTML = ""; //J'efface tt le contenu précédent
       // Parcourir les works et créer les éléments d'image
       works.forEach((work) => { //Je fais une boucle pour chaque image, chaque image est parcourue.
         const imageContainer = document.createElement("div");
         imageContainer.classList.add("modal-image-container");
-
         imageContainer.dataset.id = work.id// la propriété dataset de l'élément imageContainer est utilisée pour définir un attribut data-id
-
         const image = document.createElement("img");
         image.src = work.imageUrl;
         image.alt = "Image du projet";
         image.classList.add("modal-image"); //j'ajoute la class css créee ds modal.css pour styliser l'image
 
-        //Insertion de l'icone fléchée pour chaque image qui apparit au hover
+        //Insertion de l'icone fléchée pour chaque image qui apparait au hover
        const arrowsUpDownLeftRight = document.createElement("i"); //J'ajoute l' image de la fleche a coté de la corbeille, cette icone sera vsible au hover
        arrowsUpDownLeftRight.classList.add("fas", "fa-expand-arrows-alt");//J'ai juste besoin d'ajouter des classes à une balise <i> pour utiliser les icons fontawsome
        imageContainer.appendChild(arrowsUpDownLeftRight);//permet de faire apparitre la fléche
 
         //Fin insertion de l'icone fléchée
-
 
         //Insertion de l'image corbeille pour chaque image
         const imgSupprimerElement = document.createElement('i');//Je crée mon icon corbeille
@@ -102,9 +98,7 @@ addPicturesButton.addEventListener("click", openSecondModal);
 //***************Je ferme la seconde modale
 
 // Récupérer les éléments de la seconde modale et du bouton de fermeture
-const closeSecondModalButton = document.querySelector(
-  ".second-modal .close-modal"
-);
+const closeSecondModalButton = document.querySelector( ".second-modal .close-modal");
 //const secondModal = document.querySelector(".second-modal"); present en ligne 8
 
 // Fonction pour fermer la seconde modale
@@ -144,7 +138,7 @@ arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléc
 galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal" correspond à ma gallery d'image
   if (e.target.classList.contains("delete-icon")) { //delete-icon ds modal-css, ligne 105, c'est ma corbeille//"e.target", je determine l'élément réellement cliqué, je vérifie que cet élement posséde la classe"delete-icon"
     const imageContainer = e.target.parentElement; //Avec"parentElement", je remonte jusqu'à l'élément conteneur de l'image qui est "imageContainer" qui contient l'image + corbeille
-    const imageId = imageContainer.dataset.id; // je mets en commentaire pour pas vraiment supprimer l'image/j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
+    const imageId = imageContainer.dataset.id; // sert à supprimer l'image/j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
 //Lorsque je  clique sur la corbeille j'utilise imageContainer.dataset.id pour récupérer la valeur de l'attribut data-id, qui représente l'identifiant de l'image correspondante.
 
     fetch(`http://localhost:5678/api/works/${imageId}`, {  // L'URL de la requête est construite en utilisant l'ID de l'image, "imageId"=variable L137, permet de spécifier quelle image doit être suprimée
@@ -153,8 +147,8 @@ galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal
         Authorization: `Bearer ${localStorage.getItem("token")}`, // j'inclue le jeton d'authentification dans les en-têtes de la requête en utilisant localStorage.getItem("token").
       },
     })
-      .then((response) => {
-        console.log(response);
+      .then((response) => {//j'attends la réponse
+        console.log(response); //j'affiche la réponse
         if (response.ok) { //Si la réponse de la requête est response.ok, l'image est supprimée
           alert("Voulez-vous supprimer la photo?");
           
@@ -163,7 +157,7 @@ galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal
           throw new Error("Error deleting the image"); //je génére une erreur en utilisant throw new Error("Error deleting the image")
         }
       })
-      .catch((error) => {
+      .catch((error) => { //l'erreur est capturée avec .catch() et affichée dans la console à l'aide de console.error(error).
         console.error(error);//ce message s'affichera ds la console s'il y a une ereur
       });
   }

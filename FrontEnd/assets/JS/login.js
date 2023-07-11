@@ -6,7 +6,7 @@ const formulaire = document.querySelector("#formulaire-login"); //Je selectionne
 const error = document.querySelector("#error"); //Je selectionne le p de error dans login.html
 
 formulaire.addEventListener("submit", (e) => {  //La méthode submit()provoque la soumission des valeurs du formulaire 
-  e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je vneutralise l'action par défaut de l’envoi du formulaire)
+  e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je neutralise l'action par défaut de l’envoi du formulaire
   const email = formulaire.email.value; //".value" pr recuperer la valeur de l'email saisie par l'utilisateur
   const password = formulaire.password.value; //".value" pr recuperer la valeur du password saisie par l'utilisateur
   //console.log("email");
@@ -15,7 +15,7 @@ formulaire.addEventListener("submit", (e) => {  //La méthode submit()provoque l
   fetch("http://localhost:5678/api/users/login", {  //La méthode fetch permet de contacter l'API à l'aide de l'URL
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json",// les données sont envoyées au format JSON
     },
     body: JSON.stringify({ email, password }), //Convertit l'e-mail et le mot de passe en string et les intégre dans le corps de la requête.
   })

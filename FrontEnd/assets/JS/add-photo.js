@@ -10,13 +10,13 @@ const select = document.querySelector("#categorieSelect");
 const buttonValidate = modalAddPhoto.querySelector(".valider-photo");
 
 // Récupération des catégories
-fetch("http://localhost:5678/api/categories", {
+fetch("http://localhost:5678/api/categories", { //Je récupére les catégories disponibles via l'API
   method: "GET"
 })
   .then((res) => res.json())
   .then((categories) => {
-    categories.forEach((category) => {
-      const option = document.createElement("option");
+    categories.forEach((category) => { //les catégories sont parcourues avec forEach()
+      const option = document.createElement("option"); //pour chaque catégorie 1 nvelle option est créee & ajouté à l'élément select
       option.value = category.id;
       option.innerHTML = category.name;
       select.appendChild(option);
@@ -24,9 +24,9 @@ fetch("http://localhost:5678/api/categories", {
   });
 
   //
-inputFile.addEventListener("change", () => { 
-  const file = inputFile.files[0];
-  console.log("Fichier sélectionné :", file);
+inputFile.addEventListener("change", () => { //lorsque l'utilisateur selectionne 1 fichier
+  const file = inputFile.files[0]; //récupère le premier fichier sélectionné par l'utilisateur
+  console.log("Fichier sélectionné :", file); //indique le fichier qui a été sélectionné.
 
   if (!file) { //Je verifie la propriété files de inpute.files, si input.files est vide = pas de fichier séléctionné, j'affiche une alert de message.
     // Afficher un message d'erreur
@@ -37,6 +37,7 @@ inputFile.addEventListener("change", () => {
   const img = document.createElement("img");
   img.src = URL.createObjectURL(file);
   img.classList.add("image-ajout");
+  
   const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
   divAddPhoto.innerHTML = "";
   divAddPhoto.appendChild(img);
@@ -56,15 +57,15 @@ buttonValidate.addEventListener("click", (event) => {
     return; // Arrêter l'exécution de la fonction pour empêcher la fermeture de la modal
   }
 
-  if (!titleInput.value || select.value === "") {
-    // Afficher un message d'erreur si le titre ou la catégorie ne sont pas sélectionnés
+  if (!titleInput.value || select.value === "") {//si champ de titre ou liste déroulante de catégorie non rempli
+    // Alors j' Affiche un message d'erreur 
     alert("Veuillez remplir tous les champs du formulaire.");
     return; // Arrêter l'exécution de la fonction pour empêcher l'envoi du formulaire
   }
 
   event.stopPropagation();
   
-  const formData = new FormData();
+  const formData = new FormData(); //nouvel objet FormData
   formData.append("image", inputFile.files[0]);
   formData.append("title", titleInput.value);
   formData.append("category", select.value);
