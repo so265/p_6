@@ -8,11 +8,11 @@
   }
 
 
-#button-add-photo {
+/*#button-add-photo {
     background-color: transparent;
     border: none;
     border-radius: 50px;
-}
+}*/
 
 .image-ajout {
     margin-bottom: 5px;
@@ -49,20 +49,30 @@
   }
   
   .fa.fa-image {
-    font-size: 100px;
+    font-size: 80px;
     color: #b9c5cc;
+    margin-bottom: 10px;
   }
   
   #button-add-photo {
-    width: 173px;
-    height: 36px;
-    left: 633px;
-    top: 881px;
+    width: 200px;
+    height: 40px;
     background: #cbd6dc;
-    border-radius: 2050px;
+    border-radius: 50px;
     border: none;
     margin-bottom: 10px;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.picture-format {
+  margin-top: -10px; 
+}
   
   #input-file {
     display: none;/*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
