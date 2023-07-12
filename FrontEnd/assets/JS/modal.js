@@ -54,9 +54,14 @@ function displayImagesInModal() {
         //Insertion de l'icone fléchée pour chaque image qui apparait au hover
        const arrowsUpDownLeftRight = document.createElement("i"); //J'ajoute l' image de la fleche a coté de la corbeille, cette icone sera vsible au hover
        arrowsUpDownLeftRight.classList.add("fas", "fa-expand-arrows-alt");//J'ai juste besoin d'ajouter des classes à une balise <i> pour utiliser les icons fontawsome
-       imageContainer.appendChild(arrowsUpDownLeftRight);//permet de faire apparitre la fléche
+       imageContainer.appendChild(arrowsUpDownLeftRight);//permet de faire apparaitre la fléche
 
         //Fin insertion de l'icone fléchée
+
+        //Icone carre noire en dessous de la fleche directionnelle
+       const carre = document.createElement("i"); //J'ajoute l' image du carre noire en dessous de la fléche, a coté de la corbeille, cette icone sera vsible au hover
+       carre.classList.add("fa-sharp", "fa-solid", "fa-square");//J'ai juste besoin d'ajouter des classes à une balise <i> pour utiliser les icons fontawsome
+       imageContainer.appendChild(carre);//permet de faire apparaitre le carre noir
 
         //Insertion de l'image corbeille pour chaque image
         const imgSupprimerElement = document.createElement('i');//Je crée mon icon corbeille
