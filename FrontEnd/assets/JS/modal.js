@@ -69,7 +69,7 @@ function displayImagesInModal() {
         imgSupprimerElement.classList.add("delete-icon"); //class crée ds modal.css ligne 116
         imageContainer.appendChild(imgSupprimerElement);
 
-        imgSupprimerElement.addEventListener("click", deleteWork) //Je mets l'écouteur d'événement sur la corbeille et pas galleryImagesInModal, function deleteWork en ligne 145
+        //imgSupprimerElement.addEventListener("click", deleteWork); //Je mets l'écouteur d'événement sur la corbeille et pas galleryImagesInModal, function deleteWork en ligne 145
         //Fin insertion image poubelle
 
 
@@ -142,18 +142,20 @@ arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléc
 
 //const galleryImagesInModal = document.querySelector("#gallery-pictures-modal"); //déclaré en ligne 8, car est utilisé 2 fois dans ce fichier modal.js
 
-function deleteWork(e){  //"galleryImagesInModal" correspond à ma gallery d'image
-  e.preventDefault();
+galleryImagesInModal.addEventListener("click", (e) => {  //"galleryImagesInModal" correspond à ma gallery d'image
+  if (e.target.classList.contains("delete-icon")) { //delete-icon ds modal-css, ligne 105, c'est ma corbeille//"e.target", je determine l'élément réellement cliqué, je vérifie que cet élement posséde la classe"delete-icon"
     const imageContainer = e.target.parentElement; //Avec"parentElement", je remonte jusqu'à l'élément conteneur de l'image qui est "imageContainer" qui contient l'image + corbeille
-    const imageId = e.target.dataset.id; // je mets en commentaire pour pas vraiment supprimer l'image/j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
+    const imageId = imageContainer.dataset.id; // sert à supprimer l'image/j' extrais l'ID de l'image à partir de l'attribut data-id de imageContainer."data-id" représente l'identifiant de l'image correspondante
+//Lorsque je  clique sur la corbeille j'utilise imageContainer.dataset.id pour récupérer la valeur de l'attribut data-id, qui représente l'identifiant de l'image correspondante.
+
     fetch(`http://localhost:5678/api/works/${imageId}`, {  // L'URL de la requête est construite en utilisant l'ID de l'image, "imageId"=variable L137, permet de spécifier quelle image doit être suprimée
       method: "DELETE", //Je fais 1 requéte delete à l'API en utilisant 'fetch'
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, // j'inclue le jeton d'authentification dans les en-têtes de la requête en utilisant localStorage.getItem("token").
       },
     })
-      .then((response) => {
-        console.log(response);
+      .then((response) => {//j'attends la réponse
+        console.log(response); //j'affiche la réponse
         if (response.ok) { //Si la réponse de la requête est response.ok, l'image est supprimée
           alert("Voulez-vous supprimer la photo?");
           
@@ -162,9 +164,10 @@ function deleteWork(e){  //"galleryImagesInModal" correspond à ma gallery d'ima
           throw new Error("Error deleting the image"); //je génére une erreur en utilisant throw new Error("Error deleting the image")
         }
       })
-      .catch((error) => {
+      .catch((error) => { //l'erreur est capturée avec .catch() et affichée dans la console à l'aide de console.error(error).
         console.error(error);//ce message s'affichera ds la console s'il y a une ereur
       });
   }
+});
 
 
