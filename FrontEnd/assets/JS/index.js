@@ -66,7 +66,8 @@ fetch("http://localhost:5678/api/categories") //requête GET vers l'URL pour ré
     });
   });
 
-function displayWork(e, id) { //appelé lorsque l'un des boutons de filtrages est cliqué, "e est l'événement cliqué, "id", 
+  //cette fonction permet de visualiser visuellement quel bouton de filtrage est actif
+function displayWork(e, id) { //appelé lorsque l'un des boutons de filtrages est cliqué, "e est l'événement cliqué, "id", est l'identifiant de l'élément cliqué, 
   const boutonsFiltres = document.querySelectorAll(".boutonsFiltres");
   boutonsFiltres.forEach((filtre) => { //boucle pour parcourir ts les boutonFiltres
     if (filtre === e.target) { //Je verifie si le bouton correspond à l'élément cliqué

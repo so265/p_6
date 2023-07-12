@@ -37,6 +37,7 @@ inputFile.addEventListener("change", () => { //lorsque l'utilisateur selectionne
   const img = document.createElement("img");
   img.src = URL.createObjectURL(file);
   img.classList.add("image-ajout");
+ 
   
   const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
   divAddPhoto.innerHTML = "";
@@ -65,21 +66,21 @@ buttonValidate.addEventListener("click", (event) => {
 
   event.stopPropagation();
   
-  const formData = new FormData(); //nouvel objet FormData
-  formData.append("image", inputFile.files[0]);
+  const formData = new FormData(); //nouvel objet FormData, je collecte et regroupe toutes les données saisies dans un formulaire afin de les envoyer facilement dans une requête HTTP
+  formData.append("image", inputFile.files[0]); //J'ajoute l'image séléctionnée à l'objet formData
   formData.append("title", titleInput.value);
   formData.append("category", select.value);
 
   fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`, //je recupere le jeton d'accés du localStorage
     },
     body: formData,
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data); //"data" représente les données renvoyées par l'API
+      console.log(data); //Les données renvoyées par l'API sont affichées dans la console 
       event.stopPropagation();  //a voir
       alert("La photo a été téléchargée avec succès!");
     })

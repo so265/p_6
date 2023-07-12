@@ -20,8 +20,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 751px;
-  height: 741px;
+  width: 80vh;
+  height: 80vh; /*80% de la page*/
   max-width: 800px;
   padding: 45px;
   background-color: #fff;
@@ -56,7 +56,7 @@
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
-  bottom: 175px;
+  bottom: 170px;
 }
 
 .modal .delete-gallery {
@@ -83,7 +83,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 100px;
+  bottom: 95px;
   border: none;
 }
 
@@ -94,6 +94,8 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  text-align: left;
+  margin-left: 8%; /*Pour ajuster la marge des 2 cotés*/
 }
 
 .modal-image-container {  /*J'ajoute a l'interieur de ce container l'icone poubelle en Js*/
@@ -122,8 +124,9 @@
   top: 15px;
   right: 15px;
   background-color: black;
-  background-size: 200%; /* Ajustez la valeur pour agrandir ou réduire le fond de l'icône */
+  /*background-size: 200%; /* Ajustez la valeur pour agrandir ou réduire le fond de l'icône */
   color: white;
+  padding: 3px;
 }
 
 /*.modal-image-container:last-child img {
@@ -135,13 +138,12 @@
   width: 105px;
   height: 130px;
   object-fit: cover; /*Ainsi les images ne sont pas déformées*/
-  margin: 10px;
-  object-fit: cover;
+  
 }
 
 .editer {
   display: block;
-  margin-left: 12px;
+  margin-top: 0.5px;
 }
 
 /************************Second-modal*********************/
@@ -150,8 +152,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 751px;
-  height: 741px;
+  width: 80vh;
+  height: 80vh;
   max-width: 800px;
   padding: 45px;
   background-color: #fff;
