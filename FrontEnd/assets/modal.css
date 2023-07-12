@@ -98,35 +98,57 @@
   margin-left: 8%; /*Pour ajuster la marge des 2 cotés*/
 }
 
-.modal-image-container {  /*J'ajoute a l'interieur de ce container l'icone poubelle en Js*/
+.modal-image-container {
+  /*J'ajoute a l'interieur de ce container l'icone poubelle en Js*/
   display: inline-block;
   margin: 10px;
-  position: relative;/*Me permet de positionner la poubelle en hau a droite*/
+  position: relative; /*Me permet de positionner la poubelle en hau a droite*/
 }
 
-.fas.fa-expand-arrows-alt { /*provient de fontawesome*/
+.fas.fa-expand-arrows-alt {
+  /*provient de fontawesome*/
   transform: rotate(45deg); /*Me permet de faire une rotation de l'icone*/
-  position: absolute;  /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
-  top: 15px;
-  left: 70px;
-  font-size: 14px;
+  position: absolute; /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
+  top: 9px;
+  left: 62px;
+  font-size: 10px;
   color: white;
+  display: none;
+  padding: 1px;
+  z-index: 2;
+}
+
+.fa-sharp.fa-solid.fa-square {
   background-color: black;
+  font-size: 17px;
+  padding: 1px;
+  position: absolute; /*Me permet de positionner la fléche en haut à droite à coté de la corbeille, icone ajouté ds modal.*/
+  top: 6px;
+  left: 60px;
+  z-index: 1;
   display: none;
 }
 
-.modal-image-container:hover .fas.fa-expand-arrows-alt {/*Il faut mettre le hover sur le container, fléche apparait juste au hover*/
+.modal-image-container:hover .fas.fa-expand-arrows-alt {
+  /*Il faut mettre le hover sur le container, fléche apparait juste au hover*/
   display: block;
 }
 
-.delete-icon { /*Icone poubelle pour supprimer les projets, se trouve en haut à droite de chaque image, icone ajoutée en JS*/
+.modal-image-container:hover .fa-sharp.fa-solid.fa-square {
+  /*Il faut mettre le hover sur le container, fléche apparait juste au hover*/
+  display: block;
+}
+
+.delete-icon {
+  /*Icone poubelle pour supprimer les projets, se trouve en haut à droite de chaque image, icone ajoutée en JS*/
   position: absolute; /*Me permet de positionner la poubelle en hau a droite*/
-  top: 15px;
-  right: 15px;
+  top: 5px;
+  right: 5px;
   background-color: black;
   /*background-size: 200%; /* Ajustez la valeur pour agrandir ou réduire le fond de l'icône */
   color: white;
-  padding: 3px;
+  padding: 5px;
+  font-size: 10px;
 }
 
 /*.modal-image-container:last-child img {
@@ -138,7 +160,6 @@
   width: 105px;
   height: 130px;
   object-fit: cover; /*Ainsi les images ne sont pas déformées*/
-  
 }
 
 .editer {
@@ -208,7 +229,7 @@
 }
 
 #input-file {
-  /*display: none;*//*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
+  /*display: none;*/ /*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
 }
 
 #label-title {
@@ -247,8 +268,8 @@
 }
 
 #title-add-photo,
-#categorie-add-photo{
-outline-style: none; /*Pour enlever les bordures au ckick sur la souris*/
+#categorie-add-photo {
+  outline-style: none; /*Pour enlever les bordures au ckick sur la souris*/
 }
 
 .bottom-line-secondModal {
