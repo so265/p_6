@@ -72,7 +72,7 @@ function displayImagesInModal() {
 
 
         const editLabel = document.createElement("span");
-        editLabel.innerText = "Éditer";
+        editLabel.innerText = "éditer";
         editLabel.classList.add("editer"); //Je cree une class ds modal.css qui s'appelle editer
 
         galleryImagesInModal.appendChild(imageContainer);//l'élément imageContainer est ajouté à l'élément galleryImagesInModal, ce qui affiche la nouvelle image avec ses icônes dans la première modale et le portofolio.
