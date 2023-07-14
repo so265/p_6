@@ -151,10 +151,6 @@
   font-size: 10px;
 }
 
-/*.modal-image-container:last-child img {
-  margin-right: auto;
-}*/
-
 .modal-image {
   display: inline-block; /*Me permet de mettre les images les unes à coté des autres*/
   width: 105px;
@@ -182,7 +178,7 @@
   /*z-index: 1;*/
   position: fixed;
   display: block;
-  /*display: none;*/
+  text-align: center;  /*Permet de centrer les input et titre au milieu*/
 }
 
 .fas.fa-arrow-left {
@@ -199,24 +195,13 @@
   align-items: center;
 }
 
-.button-add-photo {
-  width: 173px;
-  height: 36px;
-  left: 633px;
-  top: 881px;
-  background: #cbd6dc;
-  border-radius: 2050px;
-  border: none;
-  margin-bottom: 10px;
-}
-
 #label-title {
   margin-right: 380px;
   margin-bottom: 10px;
 }
 
 #title-add-photo,
-#categorie-add-photo {
+#categorieSelect {
   margin-bottom: 40px;
   width: 420px;
   height: 51px;
@@ -225,6 +210,7 @@
   background: #ffffff;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
   border: none;
+  outline-style: none; /*Pour enlever les bordures au ckick sur la souris*/
 }
 
 .valider-photo {

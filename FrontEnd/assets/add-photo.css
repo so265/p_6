@@ -3,16 +3,6 @@
 /*Fichier pour ajouter du style a la 2éme modale lors de l'ajout des photos*/
 
 /*C'est juste le formulaire de la 2éme modale*/
-.second-modal {
-    text-align: center;  /*Permet de centrer les input et titre au milieu*/
-  }
-
-
-/*#button-add-photo {
-    background-color: transparent;
-    border: none;
-    border-radius: 50px;
-}*/
 
 .image-ajout {
     margin-bottom: 5px;
@@ -41,14 +31,7 @@
     margin-bottom: 40px;
   }
   
-  #formulaire {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    align-items: center;
-  }
-  
-  .fa.fa-image {
+.fa.fa-image {
     font-size: 80px;
     color: #b9c5cc;
     margin-bottom: 10px;
@@ -77,8 +60,7 @@
   #input-file {
     display: none;/*Je le fais disparaitre car ce n'est pas joli de laisser "choisir un fichier" visible*/
   }
-  
-  .label-title, .label-category {
+  .label-title {
     display: block; /*Cette propriéte permet de décoller titre et catégorie des inputs(champs dde saisie)*/
     margin-top: 20px;
     margin-right: 375px;
@@ -92,39 +74,5 @@
    margin-left: 20px
 }
   
-#title-add-photo,
-  #categorieSelect {
-    margin-bottom: 40px;
-    width: 420px;
-    height: 51px;
-    left: 510px;
-    top: 1011px;
-    background: #ffffff;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-    border: none;
-  }
-  
-  .valider-photo {
-    font-family: "Syne";
-    font-weight: 700;
-    font-size: 14px;
-    color: white;
-    background: #a7a7a7;
-    width: 237px;
-    height: 36px;
-    text-align: center;
-    border-radius: 60px;
-    cursor: pointer;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100px;
-    border: none;
-  }
-  
-  #title-add-photo,
-  #categorie-add-photo{
-  outline-style: none; /*Pour enlever les bordures au ckick sur la souris*/
-  }
   
   
