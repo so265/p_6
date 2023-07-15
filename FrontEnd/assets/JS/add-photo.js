@@ -1,5 +1,5 @@
 //add-photo.js
-//Ce fichier concerne juste le formulaire de la 2éme modale en ligne 49 de index.mtml, me permet d'ajouter une photo à la base de données via une requete POST.
+//Ce fichier concerne juste le formulaire de la 2éme modale, me permet d'ajouter une photo à la base de données via une requete POST.
 
 const form = document.getElementById("formulaire-add-photo");
 const btnAddPhoto = document.getElementById("button-add-photo");
@@ -8,6 +8,7 @@ const modalAddPhoto = document.querySelector(".second-modal");
 const titleInput = modalAddPhoto.querySelector("#title-add-photo");
 const select = document.querySelector("#categorieSelect");
 const buttonValidate = modalAddPhoto.querySelector(".valider-photo");
+const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
 
 // Récupération des catégories
 fetch("http://localhost:5678/api/categories", { //Je récupére les catégories disponibles via l'API
@@ -38,8 +39,6 @@ inputFile.addEventListener("change", () => { //lorsque l'utilisateur selectionne
   img.src = URL.createObjectURL(file);
   img.classList.add("image-ajout");
  
-  
-  const divAddPhoto = modalAddPhoto.querySelector(".add-photo");
   divAddPhoto.innerHTML = "";
   divAddPhoto.appendChild(img);
 
@@ -83,6 +82,12 @@ buttonValidate.addEventListener("click", (event) => {
       console.log(data); //Les données renvoyées par l'API sont affichées dans la console 
       event.stopPropagation();  //a voir
       alert("La photo a été téléchargée avec succès!");
+
+      //Je vide le formulaire
+      inputFile.value = null;
+      titleInput.value = ""; // Je réinitialise le champ de l'email à une chaîne vide
+      select.value = ""; 
+      divAddPhoto.innerHTML = ""; // Je supprime l'image affichée
     })
     .catch((error) => console.error(error));
 });
