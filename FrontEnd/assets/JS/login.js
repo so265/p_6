@@ -9,8 +9,7 @@ formulaire.addEventListener("submit", (e) => {  //La méthode submit()provoque l
   e.preventDefault(); // Pour prévenir l’envoi d’un formulaire mal rempli/ je neutralise l'action par défaut de l’envoi du formulaire
   const email = formulaire.email.value; //".value" pr recuperer la valeur de l'email saisie par l'utilisateur
   const password = formulaire.password.value; //".value" pr recuperer la valeur du password saisie par l'utilisateur
-  //console.log("email");
-  //console.log("password");
+  
   //Envoi la requête POST à l'API 
   fetch("http://localhost:5678/api/users/login", {  //La méthode fetch permet de contacter l'API à l'aide de l'URL
     method: "POST",
@@ -27,7 +26,7 @@ formulaire.addEventListener("submit", (e) => {  //La méthode submit()provoque l
         //Si "if" l'authentification est réussie, enregistrement du jeton d'authentification (token) dans le stockage local(localStorage).
         localStorage.setItem("token", data.token); //le localStorage permet aux développeurs de stocker et de récupérer des données dans le navigateur, données perdues lorsque l'utilisateur vide le cache
         //"setItem()"": Cette méthode est utilisée pour ajouter une clé et une valeur au localStorage.
-       window.location.href = "index.html"; //L'utilisateur est redirigé vers la page d'accueil ("index.html").
+        window.location.replace("index.html");//L'utilisateur est redirigé vers la page d'accueil.
       } else  {
         error.textContent = "Erreur dans l’identifiant ou le mot de passe"; //Si le mot de passe ou l'identifiant est invalide, ce message s'affiche
       }
