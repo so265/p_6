@@ -130,6 +130,7 @@ function outsideSecondModalClick(e) {
 function goBackToFirstModal() {
   secondModal.style.display = "none"; //Ma seconde modale disparait
   firstModal.style.display = "block"; //Ma premiére modale réapparait
+  displayImagesInModal()
 }
 
 arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléche de gauche, j'affiche à nouveau la 1ére modale.
