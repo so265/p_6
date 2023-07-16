@@ -161,6 +161,12 @@ function deleteWork(e) {
         alert("Voulez-vous supprimer la photo?");
         imageContainer.remove();
         
+      //Je supprime également l'image de la page d'accueil
+      const workInGallery = document.querySelector(`.work[data-id="${imageId}"]`);
+      if (workInGallery) {
+        workInGallery.remove();
+      }
+        
       } else {
         throw new Error("Error deleting the image");
       }
