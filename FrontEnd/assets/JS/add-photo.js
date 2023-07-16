@@ -82,14 +82,23 @@ buttonValidate.addEventListener("click", (event) => {
       console.log(data); //Les données renvoyées par l'API sont affichées dans la console 
       event.stopPropagation();  //a voir
       alert("La photo a été téléchargée avec succès!");
-
-      //Je vide le formulaire
-      inputFile.value = null;
-      titleInput.value = ""; // Je réinitialise le champ de l'email à une chaîne vide
-      select.value = ""; 
-      divAddPhoto.innerHTML = ""; // Je supprime l'image affichée
-    })
+      resetForm()
+})
     .catch((error) => console.error(error));
 });
 
 
+// Fonction pour réinitialiser le formulaire
+function resetForm() {
+  titleInput.value = "";
+  select.value = "";
+  divAddPhoto.innerHTML =`<div class="divIconValidate">
+  <i class="fa fa-image"></i>
+</div>
+<label for="input-file" id="button-add-photo">+ Ajouter photo</label>
+<input type="file" id="input-file"><br>
+<span class="picture-format">jpg, png : 4mo max</span>`;
+  //inputFile.value = "";
+  //btnAddPhoto.style.display = "block";
+  
+}
