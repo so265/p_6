@@ -168,14 +168,3 @@ function deleteWork(e) {
       console.error(error);
     });
 }
-
-
-
-
-
-
-
-
-
-
-
