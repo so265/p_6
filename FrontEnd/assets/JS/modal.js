@@ -160,6 +160,7 @@ function deleteWork(e) {
       if (response.ok) {
         alert("Voulez-vous supprimer la photo?");
         imageContainer.remove();
+        
       } else {
         throw new Error("Error deleting the image");
       }
