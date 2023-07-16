@@ -21,7 +21,7 @@ fetch("http://localhost:5678/api/works") //Requête Get vers cette URL pour réc
       let figcaption = document.createElement("figcaption");
       figcaption.innerText = works[i].title;
       figure.appendChild(figcaption);
-      
+      figure.dataset.id = works[i].id; //Pour supprimer l'image ajoutée dans la page d'accueil
     }
   });
 

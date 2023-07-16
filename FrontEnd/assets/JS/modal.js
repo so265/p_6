@@ -159,12 +159,12 @@ function deleteWork(e) {
       console.log(response);
       if (response.ok) {
         alert("Voulez-vous supprimer la photo?");
-        imageContainer.remove();
+        imageContainer.remove(); //Je supprime l'image de la 1ere modale
         
       //Je supprime également l'image de la page d'accueil
-      const workInGallery = document.querySelector(`.work[data-id="${imageId}"]`);
+      const workInGallery = document.querySelector(`.work[data-id="${imageId}"]`); //data-id correspond à l'ID de l'image supprimée
       if (workInGallery) {
-        workInGallery.remove();
+        workInGallery.remove(); //Si je trouve cet élément "workInGallery", je le supprime
       }
         
       } else {
