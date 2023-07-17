@@ -83,10 +83,33 @@ buttonValidate.addEventListener("click", (event) => {
       event.stopPropagation();  //a voir
       alert("La photo a été téléchargée avec succès!");
       resetForm()
+      getImages();
 })
     .catch((error) => console.error(error));
 });
 
+let gallery = document.getElementsByClassName("gallery")[0];
+function getImages() {
+  fetch("http://localhost:5678/api/works") //Requête Get vers cette URL pour récupérer une liste de travaux à afficher ds le portofolio
+  .then((response) => response.json())
+  .then((works) => {
+    for (let i = 0; i < works.length; i++) { //boucle for utilisée pour parcourir les éléments du tableau "works" un par un.
+      let figure = document.createElement("figure"); //Pour chaque élément du tableau, on crée un nouvel élément <figure>
+      figure.classList.add("work");
+      figure.dataset.category = works[i].categoryId;
+      gallery.appendChild(figure);
+
+      let image = document.createElement("img");
+      image.src = works[i].imageUrl;
+      figure.appendChild(image);
+
+      let figcaption = document.createElement("figcaption");
+      figcaption.innerText = works[i].title;
+      figure.appendChild(figcaption);
+      figure.dataset.id = works[i].id; //Pour supprimer l'image ajoutée dans la page d'accueil
+    }
+  });
+}
 
 // Fonction pour réinitialiser le formulaire
 function resetForm() {
