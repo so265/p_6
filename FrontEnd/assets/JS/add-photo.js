@@ -88,8 +88,9 @@ buttonValidate.addEventListener("click", (event) => {
     .catch((error) => console.error(error));
 });
 
-let gallery = document.getElementsByClassName("gallery")[0];
-function getImages() {
+function getImages() {   //Quand j'ai téléchargé l'image, je refais un appel à l'API pour afficher la nouvelle image dans la page d'accueil
+  let gallery = document.getElementsByClassName("gallery")[0];
+  gallery.innerHTML = "";
   fetch("http://localhost:5678/api/works") //Requête Get vers cette URL pour récupérer une liste de travaux à afficher ds le portofolio
   .then((response) => response.json())
   .then((works) => {
@@ -107,9 +108,10 @@ function getImages() {
       figcaption.innerText = works[i].title;
       figure.appendChild(figcaption);
       figure.dataset.id = works[i].id; //Pour supprimer l'image ajoutée dans la page d'accueil
-    }
-  });
 }
+    });
+}
+
 
 // Fonction pour réinitialiser le formulaire
 function resetForm() {
