@@ -138,40 +138,41 @@ arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléc
 
 //************Supression de travaux existant au click sur la corbeille ds la 1ére modale **************//
 
-// Je récupère l'icône corbeille pour chaque image
+// Je supprime une image
 
 
-
-// Supprime une image
-function deleteWork(e) {
-  e.stopPropagation(); // Empêche la propagation de l'événement click vers les parents
+function deleteWork(e) { //fonction appelée lorsque un utilisateur clique sur la corbeille
+  e.stopPropagation(); // Empêche la propagation de l'événement click vers les parents afin d'éviter que d'autres éléments réagissent à ce clic.
 
   const imageContainer = e.target.parentElement;
   const imageId = imageContainer.dataset.id;
 
-  fetch(`http://localhost:5678/api/works/${imageId}`, {
-    method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
-    .then((response) => {
-      console.log(response);
-      if (response.ok) {
-        alert("Voulez-vous supprimer la photo?");
-        imageContainer.remove(); //Je supprime l'image de la 1ere modale
-        
-      //Je supprime également l'image de la page d'accueil
-      const workInGallery = document.querySelector(`.work[data-id="${imageId}"]`); //data-id correspond à l'ID de l'image supprimée
-      if (workInGallery) {
-        workInGallery.remove(); //Si je trouve cet élément "workInGallery", je le supprime
-      }
-        
-      } else {
-        throw new Error("Error deleting the image");
-      }
+  // J'utilise une boîte de dialogue de confirmation personnalisée
+  const userConfirmation = confirm("Voulez-vous vraiment supprimer la photo ?"); //La réponse de l'utilsateur true ou false est stockée ds cette variable 
+
+  if (userConfirmation) {
+    fetch(`http://localhost:5678/api/works/${imageId}`, { //si oui la la requéte de suppression est effectuée via une requete fetch
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((response) => {
+        console.log(response);
+        if (response.ok) { 
+          imageContainer.remove(); //Je supprime l'image de la 1ere modale
+
+   //Je supprime également l'image de la page d'accueil
+          const workInGallery = document.querySelector( `.work[data-id="${imageId}"]`); ////data-id correspond à l'ID de l'image supprimée
+          if (workInGallery) {
+            workInGallery.remove(); ////Si je trouve cet élément "workInGallery", je le supprime
+          }
+        } else {
+          throw new Error("Error deleting the image");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 }
