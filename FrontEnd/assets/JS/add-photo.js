@@ -98,4 +98,6 @@ function resetForm() {
 <label for="input-file" id="button-add-photo">+ Ajouter photo</label>
 <input type="file" id="input-file"><br>
 <span class="picture-format">jpg, png : 4mo max</span>`;
+
+form.reset(); //Je réinitialise le formulaire sans recharger la page
 }
