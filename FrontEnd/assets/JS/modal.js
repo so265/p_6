@@ -158,7 +158,6 @@ function deleteWork(e) { //fonction appelée lorsque un utilisateur clique sur l
       },
     })
       .then((response) => {
-        console.log(response);
         if (response.ok) { 
           imageContainer.remove(); //Je supprime l'image de la 1ere modale
 

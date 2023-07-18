@@ -27,7 +27,7 @@ fetch("http://localhost:5678/api/categories", { //Je récupére les catégories 
   //
 inputFile.addEventListener("change", () => { //lorsque l'utilisateur selectionne 1 fichier
   const file = inputFile.files[0]; //récupère le premier fichier sélectionné par l'utilisateur
-  console.log("Fichier sélectionné :", file); //indique le fichier qui a été sélectionné.
+  //console.log("Fichier sélectionné :", file); //indique le fichier qui a été sélectionné.
 
   if (!file) { //Je verifie la propriété files de inpute.files, si input.files est vide = pas de fichier séléctionné, j'affiche une alert de message.
     // Afficher un message d'erreur
@@ -79,7 +79,6 @@ buttonValidate.addEventListener("click", (event) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data); //Les données renvoyées par l'API sont affichées dans la console 
       event.stopPropagation();  //a voir
       alert("La photo a été téléchargée avec succès!");
       resetForm()
