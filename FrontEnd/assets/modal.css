@@ -90,12 +90,15 @@
 /***********/
 
 #gallery-pictures-modal {
-  /*C'est la galerie dans laquelle se trouve les images*/
+  /*C'est la galerie dans laquelle se trouve les images ds la modale*/
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   text-align: left;
   margin-left: 8%; /*Pour ajuster la marge des 2 cotés*/
+  height: 70%;
+  margin-left: 8%;
+  overflow-y: auto;
 }
 
 .modal-image-container {
