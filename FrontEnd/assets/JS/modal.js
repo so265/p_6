@@ -140,7 +140,6 @@ arrowLeft.addEventListener("click", goBackToFirstModal); //au click sur la fléc
 
 // Je supprime une image
 
-
 function deleteWork(e) { //fonction appelée lorsque un utilisateur clique sur la corbeille
   e.stopPropagation(); // Empêche la propagation de l'événement click vers les parents afin d'éviter que d'autres éléments réagissent à ce clic.
 

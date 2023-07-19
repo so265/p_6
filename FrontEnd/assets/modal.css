@@ -69,7 +69,6 @@
 }
 
 .addPicturesModal {
-  /*"buton" ajouter photos*/
   font-family: "Syne";
   font-weight: 700;
   font-size: 14px;
@@ -148,7 +147,6 @@
   top: 5px;
   right: 5px;
   background-color: black;
-  /*background-size: 200%; /* Ajustez la valeur pour agrandir ou réduire le fond de l'icône */
   color: white;
   padding: 5px;
   font-size: 10px;
@@ -178,7 +176,6 @@
   padding: 45px;
   background-color: #fff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  /*z-index: 1;*/
   position: fixed;
   display: block;
   text-align: center;  /*Permet de centrer les input et titre au milieu*/

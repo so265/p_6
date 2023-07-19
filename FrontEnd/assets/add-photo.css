@@ -2,7 +2,7 @@
 
 /*Fichier pour ajouter du style a la 2éme modale lors de l'ajout des photos*/
 
-/*C'est juste le formulaire de la 2éme modale*/
+/*C'est pour le formulaire de la 2éme modale*/
 
 .image-ajout {
     margin-bottom: 5px;
@@ -10,7 +10,6 @@
     margin-left: 0;
     max-width: 100%;
     max-height: 100%;
-   
 }
 
 .image-ajout:not(.dynamique) {
